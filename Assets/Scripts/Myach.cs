@@ -30,18 +30,18 @@ public class Myach : MonoBehaviour
         cooldown = false;
     }
 
-    public void setTargetAI() 
-    { 
-        if (cooldown) { return; } 
-        throwSim.throwBallRB(targetAI); 
-        StartCoroutine(cooldownPress());  
+    public void setTargetAI()
+    {
+        if (cooldown) { return; }
+        throwSim.throwBallRB(targetAI);
+        StartCoroutine(cooldownPress());
     }
 
-    public void setTargetPlayer() 
-    { 
-        if (cooldown) { return; } 
-        throwSim.throwBallRB(targetPlayer); 
-        StartCoroutine(cooldownPress()); 
+    public void setTargetPlayer()
+    {
+        if (cooldown) { return; }
+        throwSim.throwBallRB(targetPlayer);
+        StartCoroutine(cooldownPress());
     }
 
     public int RandomSign()
@@ -67,6 +67,12 @@ public class Myach : MonoBehaviour
         rb.AddForce(new Vector3(Mathf.Round(Random.value) * RandomSign() * 1f, 0f, Mathf.Round(Random.value) * RandomSign() * 1f), ForceMode.Impulse);
     }
 
+    void FixedUpdate()
+    {
+        if (rb.IsSleeping())
+            rb.WakeUp();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "basket") 
@@ -83,6 +89,11 @@ public class Myach : MonoBehaviour
             }
         }
 
-        StartCoroutine(resetBall(0f));
+        //StartCoroutine(resetBall(0f));
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
     }
 }

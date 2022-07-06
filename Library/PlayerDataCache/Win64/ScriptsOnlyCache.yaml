@@ -1390,4 +1390,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: "C:/Users/Erlinberg/Documents/Unity/builds/\u0411\u0430\u0441\u043A\u0435\u0442\u0431\u043E\u043B.exe"
+  playerPath: "C:/Users/Erlinberg/Documents/Unity/\u0411\u0430\u0441\u043A\u0435\u0442\u0431\u043E\u043B/build/\u0411\u0430\u0441\u043A\u0435\u0442\u0431\u043E\u043B.exe"

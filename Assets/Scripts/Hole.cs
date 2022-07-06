@@ -10,20 +10,29 @@ public class Hole : MonoBehaviour
     private GeneralContoller generalCnt;
 
     [SerializeField]
-    private Transform holeCenter;
+    private Vector3 holeCenterOffset;
+
+    private Vector3 holeCenter;
 
     private float reactionTimer = 0;
+
+    private void Start()
+    {
+        holeCenter = (transform.position + holeCenterOffset);
+        _id = int.Parse(name.Substring(name.Length - 1));
+    }
 
 
     private void OnCollisionStay(Collision collision)
     {
         if (!(collision.gameObject.tag == "myach")) { return; }
 
-        float distance = Vector3.Distance(holeCenter.position, collision.transform.position);
-        Debug.DrawLine(holeCenter.position, collision.transform.position, generalCnt.myachGrad.Evaluate(distance / generalCnt.myachMaxDistance), 0f, false);
+        float distance = Vector3.Distance(holeCenter, collision.transform.position);
+        Debug.DrawLine(holeCenter, collision.transform.position, generalCnt.myachGrad.Evaluate(distance / generalCnt.myachMaxDistance), 0f, false);
 
-        int val = (_id + 1);
-        if (Input.GetKey(val.ToString()) && generalCnt.canPress)
+        if (distance > generalCnt.distanceRange[1]) { return; }
+
+        if (Input.GetKey(_id.ToString()) && generalCnt.canPress)
         {
             if (distance < generalCnt.distanceRange[0]) 
             { 
@@ -32,7 +41,7 @@ public class Hole : MonoBehaviour
             }
             else
             {
-                Vector3 posVector = Quaternion.AngleAxis(180, Vector3.up) * (collision.transform.position - holeCenter.position);
+                Vector3 posVector = Quaternion.AngleAxis(180, Vector3.up) * (collision.transform.position - holeCenter);
                 Vector3 forceVec = Vector3.Scale(generalCnt.kickOffForce, posVector);
 
                 collision.gameObject.GetComponent<Rigidbody>().AddForce(forceVec, ForceMode.Impulse);
