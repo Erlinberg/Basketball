@@ -143,53 +143,53 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1678}
+      Script: {instanceID: 1680}
     - Class: 114
-      Script: {instanceID: 2368}
+      Script: {instanceID: 2370}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2608}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2822}
     - Class: 114
-      Script: {instanceID: 2864}
+      Script: {instanceID: 2866}
     - Class: 114
-      Script: {instanceID: 3104}
+      Script: {instanceID: 3106}
     - Class: 114
-      Script: {instanceID: 3442}
+      Script: {instanceID: 3444}
     - Class: 114
-      Script: {instanceID: 3964}
+      Script: {instanceID: 3966}
     - Class: 114
-      Script: {instanceID: 4640}
+      Script: {instanceID: 4642}
     - Class: 114
-      Script: {instanceID: 4936}
+      Script: {instanceID: 4938}
     - Class: 114
-      Script: {instanceID: 5244}
+      Script: {instanceID: 5246}
     - Class: 114
-      Script: {instanceID: 5416}
+      Script: {instanceID: 5418}
     - Class: 114
-      Script: {instanceID: 5632}
+      Script: {instanceID: 5634}
     - Class: 114
-      Script: {instanceID: 5782}
+      Script: {instanceID: 5784}
     - Class: 114
-      Script: {instanceID: 5802}
+      Script: {instanceID: 5804}
     - Class: 114
-      Script: {instanceID: 6090}
+      Script: {instanceID: 6092}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 6456}
     - Class: 114
-      Script: {instanceID: 6630}
+      Script: {instanceID: 6632}
     - Class: 114
-      Script: {instanceID: 6674}
+      Script: {instanceID: 6676}
     - Class: 114
-      Script: {instanceID: 7014}
+      Script: {instanceID: 7016}
     - Class: 114
-      Script: {instanceID: 7758}
+      Script: {instanceID: 7760}
     - Class: 114
-      Script: {instanceID: 8300}
+      Script: {instanceID: 8302}
     - Class: 114
-      Script: {instanceID: 8758}
+      Script: {instanceID: 8760}
     - Class: 114
-      Script: {instanceID: 8874}
+      Script: {instanceID: 8876}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -363,7 +363,7 @@ ScriptsOnlyBuild:
     className: BoxGroupTest
   - hash:
       serializedVersion: 2
-      Hash: 702002fdfb4ce34d0f9f72c7d05e695e
+      Hash: 795a11c2773bbee2232b28a18c13de40
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Hole

@@ -56,6 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Hole.cs" />
+    <Compile Include="Assets\Scripts\Myach.cs" />
     <Compile Include="Assets\Scripts\ThrowSimulation.cs" />
     <Compile Include="Assets\Scripts\GeneralContoller.cs" />
     <Compile Include="Assets\Scripts\ScoreController.cs" />
