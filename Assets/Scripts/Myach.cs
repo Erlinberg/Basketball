@@ -92,8 +92,21 @@ public class Myach : MonoBehaviour
         //StartCoroutine(resetBall(0f));
     }
 
-    void OnCollisionStay(Collision collision)
+
+    [SerializeField]
+    private GameObject badTail;
+    
+    [SerializeField]
+    private GameObject goodTail;
+
+    public void badKick()
     {
-        Debug.Log(collision.gameObject.name);
+        Destroy(Instantiate(badTail, transform), 1f);
     }
+
+    public void perfectKick()
+    {
+        Destroy(Instantiate(goodTail, transform), 1f);
+    }
+
 }

@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
+    public int generalScore = 0;
+
+    [SerializeField]
+    private GeneralContoller generalCnt;
+
     private TMPro.TextMeshProUGUI textMP;
 
     private int playerScore = 0;
@@ -24,12 +29,22 @@ public class ScoreController : MonoBehaviour
     public void addPlayerScore(int amount)
     {
         playerScore++;
+
+        if (playerScore >= generalCnt.pointsToWinRound)
+        {
+            generalCnt.levelUp();
+        }
         updateTMP();
     }
     
     public void addAIScore(int amount)
     {
         aiScore++;
+
+        if (aiScore >= generalCnt.pointsToWinRound)
+        {
+            // pass
+        }
         updateTMP();
     }
 

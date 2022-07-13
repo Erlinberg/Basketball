@@ -22,53 +22,87 @@ public class Hole : MonoBehaviour
         _id = int.Parse(name.Substring(name.Length - 1));
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        generalCnt.setCurrentHoleID(name.Substring(name.Length - 2));
+    }
+
+
+    void setBallTarget(string target, GameObject ball, float distance)
+    {
+        if (target == "AI") ball.GetComponent<Myach>().setTargetAI();
+        else ball.GetComponent<Myach>().setTargetPlayer();
+
+        generalCnt.blockPress();
+
+        Vector3 posVector = Quaternion.AngleAxis(180, Vector3.up) * (ball.transform.position - holeCenter);
+        Vector3 forceVec = generalCnt.deviationForce * (distance / generalCnt.myachMaxDistance) * posVector;
+
+        ball.GetComponent<Rigidbody>().AddForce(forceVec, ForceMode.Impulse);
+        ball.GetComponent<Myach>().perfectKick();
+    }
+
+    void setBallForce(GameObject ball)
+    {
+        Vector3 posVector = Quaternion.AngleAxis(180, Vector3.up) * (ball.transform.position - holeCenter);
+        Vector3 forceVec = Vector3.Scale(generalCnt.kickOffForce, posVector);
+
+        ball.gameObject.GetComponent<Rigidbody>().AddForce(forceVec, ForceMode.Impulse);
+        generalCnt.blockPress();
+
+        ball.GetComponent<Myach>().badKick();
+    }
+
 
     private void OnCollisionStay(Collision collision)
     {
         if (!(collision.gameObject.tag == "myach")) { return; }
+        GameObject ball = collision.gameObject;
 
-        float distance = Vector3.Distance(holeCenter, collision.transform.position);
-        Debug.DrawLine(holeCenter, collision.transform.position, generalCnt.myachGrad.Evaluate(distance / generalCnt.myachMaxDistance), 0f, false);
+        float distance = Vector3.Distance(holeCenter, ball.transform.position);
 
         if (distance > generalCnt.distanceRange[1]) { return; }
 
-        if (Input.GetKey(_id.ToString()) && generalCnt.canPress)
+        if (distance < generalCnt.distanceRange[0])
+        {
+            ball.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", generalCnt.activeColor);
+        }
+
+        if ((Input.GetKey(_id.ToString()) || generalCnt.pressedButton == name.Substring(name.Length - 2)) && generalCnt.canPress)
         {
             if (distance < generalCnt.distanceRange[0]) 
-            { 
-                collision.gameObject.GetComponent<Myach>().setTargetAI(); 
-                generalCnt.blockPress(); 
+            {
+                setBallTarget("AI", ball, distance);
             }
             else
             {
-                Vector3 posVector = Quaternion.AngleAxis(180, Vector3.up) * (collision.transform.position - holeCenter);
-                Vector3 forceVec = Vector3.Scale(generalCnt.kickOffForce, posVector);
-
-                collision.gameObject.GetComponent<Rigidbody>().AddForce(forceVec, ForceMode.Impulse);
+                setBallForce(ball);
             }
         }
+
         else if (generalCnt.workAI)
         {
-            if (distance < generalCnt.distanceRange[0])
-            {
-                reactionTimer += Time.deltaTime;
+            reactionTimer += Time.deltaTime;
 
-                if (reactionTimer >= generalCnt.aiReactionTime)
-                {
-                    collision.gameObject.GetComponent<Myach>().setTargetPlayer();
-                }
-            }
-            else
-            {
-                reactionTimer = 0;
-            }
+            if (reactionTimer <= generalCnt.aiReactionTime) { return; }
+
+            if (Random.Range(0, 100) > generalCnt.aiKickChance) { reactionTimer = 0; return; }
+
+            if (Random.Range(0, 100) <= generalCnt.aiSuccsesfulKickChance) setBallTarget("player", ball, distance);
+            else setBallForce(ball);
+        }
+        else
+        {
+            reactionTimer = 0;
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "myach") { reactionTimer = 0; }
+        collision.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", generalCnt.inactiveColor);
 
+        //generalCnt.setCurrentHoleID("--");
     }
 
 }
