@@ -10,7 +10,7 @@ public class Hole : MonoBehaviour
     private GeneralContoller generalCnt;
 
     [SerializeField]
-    private Vector3 holeCenterOffset;
+    private Transform holeCenterObj;
 
     private Vector3 holeCenter;
 
@@ -18,7 +18,7 @@ public class Hole : MonoBehaviour
 
     private void Start()
     {
-        holeCenter = (transform.position + holeCenterOffset);
+        holeCenter = holeCenterObj.position;
         _id = int.Parse(name.Substring(name.Length - 1));
     }
 
@@ -70,6 +70,7 @@ public class Hole : MonoBehaviour
 
         if ((Input.GetKey(_id.ToString()) || generalCnt.pressedButton == name.Substring(name.Length - 2)) && generalCnt.canPress)
         {
+            generalCnt.audioCnt.ballPushed();
             if (distance < generalCnt.distanceRange[0]) 
             {
                 setBallTarget("AI", ball, distance);
@@ -88,6 +89,7 @@ public class Hole : MonoBehaviour
 
             if (Random.Range(0, 100) > generalCnt.aiKickChance) { reactionTimer = 0; return; }
 
+            generalCnt.audioCnt.ballPushed();
             if (Random.Range(0, 100) <= generalCnt.aiSuccsesfulKickChance) setBallTarget("player", ball, distance);
             else setBallForce(ball);
         }

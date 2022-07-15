@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using NaughtyAttributes;
@@ -30,7 +30,6 @@ public class GeneralContoller : MonoBehaviour
 
     [HorizontalLine(color: EColor.White)]
 
-    [ReadOnly]
     public bool workAI = true;
 
     [ReadOnly]
@@ -74,8 +73,12 @@ public class GeneralContoller : MonoBehaviour
     [ColorUsageAttribute(false, true)]
     public Color activeColor;
 
+    [HideInInspector]
+    public AudioCnt audioCnt;
+
     private void Start()
     {
+        audioCnt = GetComponent<AudioCnt>();
         distanceRange = myachGrad.colorKeys.Select(colorKey => (colorKey.time * myachMaxDistance)).ToArray();
     }
 
@@ -102,7 +105,6 @@ public class GeneralContoller : MonoBehaviour
     public void restartGame()
     {
         StartCoroutine(myach.resetBall(0f));
-        scrCnt.resetScore();
     }
 
     public void setCurrentHoleID(string value)
@@ -116,6 +118,7 @@ public class GeneralContoller : MonoBehaviour
 
     private IEnumerator setKeyDown(string p_k)
     {
+        audioCnt.buttonClick();
         pressedButton = p_k;
         yield return new WaitForSeconds(0.05f);
         pressedButton = null;
@@ -133,14 +136,17 @@ public class GeneralContoller : MonoBehaviour
         aiReactionTime /= aiReactionTimeDecreaseRate;
         aiKickChance *= aiKickChanceIncreaseRate;
         aiSuccsesfulKickChance *= aiSuccsesfulKickChanceIncreaseRate;
-
-        scrCnt.resetScore();
-        scrCnt.generalScore += 1;
+        audioCnt.winGame();
     }
 
     public void loose()
     {
-        // pass
+        GameObject data = GameObject.Find("Data");
+        data.GetComponent<Data>().generalScore = scrCnt.generalScore;
+
+        GameObject scn = GameObject.Find("SceneCnt");
+        scn.GetComponent<Scene>().loadlevel("Loose");
+        audioCnt.looseGame();
     }
 
 

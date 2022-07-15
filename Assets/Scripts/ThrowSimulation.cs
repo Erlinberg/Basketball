@@ -17,7 +17,7 @@ public class ThrowSimulation : MonoBehaviour
     private float angleOffsetZ;
 
     [SerializeField]
-    private GameObject cube;
+    private GameObject tailPrefab;
 
     private void Start()
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
-    public int generalScore = 0;
+    public int generalScore = 250;
 
     [SerializeField]
     private GeneralContoller generalCnt;
@@ -28,22 +28,29 @@ public class ScoreController : MonoBehaviour
 
     public void addPlayerScore(int amount)
     {
+        generalCnt.audioCnt.scoreChange();
         playerScore++;
 
         if (playerScore >= generalCnt.pointsToWinRound)
         {
             generalCnt.levelUp();
+            generalScore += (playerScore - aiScore)*14;
+            resetScore();
+            return;
         }
         updateTMP();
     }
     
     public void addAIScore(int amount)
     {
+        generalCnt.audioCnt.scoreChange();
         aiScore++;
 
         if (aiScore >= generalCnt.pointsToWinRound)
         {
-            // pass
+            generalCnt.loose();
+            resetScore();
+            return;
         }
         updateTMP();
     }
