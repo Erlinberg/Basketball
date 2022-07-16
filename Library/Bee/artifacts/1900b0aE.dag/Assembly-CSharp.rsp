@@ -363,6 +363,7 @@
 "Assets/Particlecollection_Free samples/Plugins/Effect/Script/EffectShaderPropertyStr.cs"
 "Assets/Particlecollection_Free samples/Plugins/Effect/Script/RenderEffect.cs"
 "Assets/Particlecollection_Free samples/Plugins/Effect/Script/TransformExtension.cs"
+"Assets/Scripts/Button3D.cs"
 "Assets/Scripts/GeneralContoller.cs"
 "Assets/Scripts/Hole.cs"
 "Assets/Scripts/Myach.cs"

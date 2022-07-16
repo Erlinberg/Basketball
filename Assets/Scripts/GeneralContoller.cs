@@ -10,6 +10,9 @@ public class GeneralContoller : MonoBehaviour
 {
     [SerializeField]
     private Image blockFillerUI;
+    
+    [SerializeField]
+    private Camera mCam;
 
     [SerializeField]
     private Myach myach;
@@ -149,7 +152,21 @@ public class GeneralContoller : MonoBehaviour
         audioCnt.looseGame();
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = mCam.ScreenPointToRay(Input.mousePosition);
 
-
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == "Button3D")
+                {
+                    setButton(hit.transform.GetComponent<Button3D>().pressAnim());
+                }
+            }
+        }
+    }
 
 }

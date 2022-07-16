@@ -90,8 +90,8 @@ public class Hole : MonoBehaviour
             if (Random.Range(0, 100) > generalCnt.aiKickChance) { reactionTimer = 0; return; }
 
             generalCnt.audioCnt.ballPushed();
-            if (Random.Range(0, 100) <= generalCnt.aiSuccsesfulKickChance) setBallTarget("player", ball, distance);
-            else setBallForce(ball);
+            if (Random.Range(0, 100) <= generalCnt.aiSuccsesfulKickChance) { setBallTarget("player", ball, distance); reactionTimer = 0; }
+            else { setBallForce(ball); reactionTimer = 0; }
         }
         else
         {

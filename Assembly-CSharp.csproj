@@ -66,11 +66,12 @@
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
     <Compile Include="Assets\Scripts\Myach.cs" />
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
+    <Compile Include="Assets\AudioCnt.cs" />
     <Compile Include="Assets\Scripts\ThrowSimulation.cs" />
     <Compile Include="Assets\Data.cs" />
     <Compile Include="Assets\Scripts\GeneralContoller.cs" />
     <Compile Include="Assets\Scripts\ScoreController.cs" />
-    <Compile Include="Assets\AudioCnt.cs" />
+    <Compile Include="Assets\Scripts\Button3D.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
