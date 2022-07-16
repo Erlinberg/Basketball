@@ -35,7 +35,7 @@ public class Button3D : MonoBehaviour
 
         while (counter > 0f)
         {
-            transform.position = new Vector3(defaultPos.x, defaultPos.y + animCurve.Evaluate((animDuration - counter) /animDuration)*1.2f, defaultPos.z);
+            transform.position = new Vector3(defaultPos.x, defaultPos.y + animCurve.Evaluate((animDuration - counter) /animDuration)*1.2f   , defaultPos.z);
             counter -= Time.deltaTime * animSpeed;
             yield return null;
         }

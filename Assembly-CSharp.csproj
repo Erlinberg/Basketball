@@ -61,17 +61,18 @@
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\SliderCnt.cs" />
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
+    <Compile Include="Assets\Scripts\Button3D.cs" />
     <Compile Include="Assets\Scripts\Scene.cs" />
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
     <Compile Include="Assets\Scripts\Myach.cs" />
     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
-    <Compile Include="Assets\AudioCnt.cs" />
+    <Compile Include="Assets\Scripts\AudioCnt.cs" />
     <Compile Include="Assets\Scripts\ThrowSimulation.cs" />
-    <Compile Include="Assets\Data.cs" />
+    <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\Scripts\GeneralContoller.cs" />
     <Compile Include="Assets\Scripts\ScoreController.cs" />
-    <Compile Include="Assets\Scripts\Button3D.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />

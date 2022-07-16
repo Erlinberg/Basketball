@@ -79,9 +79,19 @@ public class GeneralContoller : MonoBehaviour
     [HideInInspector]
     public AudioCnt audioCnt;
 
+    [HideInInspector]
+    public Scene scene;
+    
+    [HideInInspector]
+    public Data data;
+
     private void Start()
     {
         audioCnt = GetComponent<AudioCnt>();
+        scene = GameObject.Find("SceneCnt").GetComponent<Scene>();
+        data = GameObject.Find("Data").GetComponent<Data>();
+
+        audioCnt.audioEnabled = data.effectsOn;
         distanceRange = myachGrad.colorKeys.Select(colorKey => (colorKey.time * myachMaxDistance)).ToArray();
     }
 
@@ -152,8 +162,12 @@ public class GeneralContoller : MonoBehaviour
         audioCnt.looseGame();
     }
 
+    [HideInInspector]
+    public bool isPaused = false;
+
     private void Update()
     {
+        if (isPaused) { return; }
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
