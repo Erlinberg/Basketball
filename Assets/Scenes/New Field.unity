@@ -3946,7 +3946,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24326
+  m_Name: pb_Mesh24846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4217,6 +4217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreCnt: {fileID: 703716568}
+  effectHit: {fileID: 2094588416}
   targetAI: {fileID: 823193779}
   targetPlayer: {fileID: 1296634047}
   startPosition: {x: 0, y: 11.6, z: 0}
@@ -11690,7 +11691,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24590
+  m_Name: pb_Mesh25164
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12299,6 +12300,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fda97e4be59b392459eacf284fd6cfb5, type: 3}
   - {fileID: 8300000, guid: e28c3aa2b4cc755408a0fda8c59d76c9, type: 3}
   - {fileID: 8300000, guid: f956688c8cc1795499280a9d6e9f074e, type: 3}
+  audioEnabled: 1
 --- !u!82 &1547744758
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14434,19 +14436,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14454,7 +14456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14484,33 +14486,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 19823096, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19831790, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19831790, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19833718, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19847196, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19851546, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: scalingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19895158, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
-      propertyPath: scalingMode
-      value: 0
+    - target: {fileID: 413850, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
@@ -21163,6 +21141,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2094588416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153390, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
+  m_PrefabInstance: {fileID: 1791872708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4009058706255864993
 PrefabInstance:
   m_ObjectHideFlags: 0

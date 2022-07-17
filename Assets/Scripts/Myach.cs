@@ -8,6 +8,8 @@ public class Myach : MonoBehaviour
     [SerializeField]
     private ScoreController scoreCnt;
     [SerializeField]
+    private GameObject effectHit;
+    [SerializeField]
     private Transform targetAI;
     [SerializeField]
     private Transform targetPlayer;
@@ -82,10 +84,12 @@ public class Myach : MonoBehaviour
             if (name == "playerBasket")
             {
                 scoreCnt.addAIScore(1);
+                Destroy(Instantiate(effectHit, transform), 1f);
             }
             else if (name == "aiBasket")
             {
                 scoreCnt.addPlayerScore(1);
+                Destroy(Instantiate(effectHit, transform), 1f);
             }
         }
 
